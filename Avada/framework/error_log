@@ -1,0 +1,3 @@
+[05-May-2017 01:21:59 America/Chicago] PHP Fatal error:  Call to undefined function get_post_meta() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/dynamic_css.php on line 435
+[05-May-2017 01:25:31 America/Chicago] PHP Fatal error:  Call to undefined function add_filter() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/custom_functions.php on line 298
+[23-Jul-2017 11:37:38 America/Chicago] PHP Fatal error:  Call to undefined function __() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/class-tgm-plugin-activation.php on line 164

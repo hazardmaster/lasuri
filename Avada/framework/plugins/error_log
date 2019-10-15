@@ -1,0 +1,4 @@
+[30-Apr-2017 08:10:24 America/Chicago] PHP Fatal error:  Call to undefined function add_filter() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/plugins/wpml.php on line 3
+[23-Jul-2017 14:07:15 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/plugins/multiple_sidebars.php on line 33
+[28-Sep-2017 01:35:49 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/plugins/multiple_sidebars.php on line 33
+[11-Oct-2017 05:36:39 America/Chicago] PHP Fatal error:  Call to undefined function add_filter() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/plugins/wpml.php on line 3

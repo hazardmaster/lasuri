@@ -1,0 +1,70 @@
+body{
+	margin: 0 auto;
+	background-image: url("../images/technology.jpg");
+	background-repeat: no-repeat;
+	/*background-position: fill;*/
+	background-size: 100%;
+	/*object-fit:cover;*/
+}
+
+.modal-header-login{
+	text-align: center;
+	font-size: 14px;
+	margin-top: -10px;
+	color: #fff;
+}
+
+.centered {
+	text-align: center;
+	margin: auto;
+	vertical-align: center;
+	margin-bottom: 20px;
+}
+
+.modal-body-registration{
+	background-color: #800000;
+	opacity: 0.9;
+	color: #fff;
+	padding-bottom: 20px;
+	/*padding-top: 10px;*/
+	width: 600px;
+	height: auto;
+	vertical-align: left;
+	text-align: right;
+	margin: auto;
+	margin-top: 0px;
+	border-radius: 10px;
+}
+.checkbox {
+	text-align: center;
+	font-size: 14px;
+}
+
+input[type="email"],input[type="password"],input[type="text"],select[name="gender"],input[type="number"]{
+	/*margin-top: 0px;*/
+	height: 20px;
+	width: 200px;
+	font-size: 12px;
+	/*margin-bottom: 10px;*/
+	background-color: #fff;
+	border-radius: 10px;
+	padding-left: 10px;
+	margin-right: 100px;
+	align-content: center;
+	/*padding-right: 120px;*/
+}
+
+.btn-css {
+	color: #fff;
+	margin-top: 20px;
+	margin-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #e9a825;
+	border-radius: 10px;
+	cursor: pointer;
+
+
+}

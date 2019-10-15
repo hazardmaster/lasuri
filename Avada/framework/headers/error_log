@@ -1,0 +1,6 @@
+[22-Apr-2017 16:30:37 UTC] PHP Fatal error:  Call to undefined function get_queried_object_id() in /home/brandafr/public_html/wp-content/themes/Avada/framework/headers/side-header.php on line 3
+[22-Apr-2017 20:17:58 UTC] PHP Fatal error:  Call to undefined function home_url() in /home/brandafr/public_html/wp-content/themes/Avada/framework/headers/header-v5.php on line 34
+[22-Apr-2017 22:49:34 UTC] PHP Fatal error:  Call to undefined function get_queried_object_id() in /home/brandafr/public_html/wp-content/themes/Avada/framework/headers/side-header.php on line 3
+[27-Apr-2017 06:36:34 America/Chicago] PHP Fatal error:  Call to a member function render_social_icons() on null in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/headers/header-social.php on line 13
+[23-Jul-2017 13:18:55 America/Chicago] PHP Fatal error:  Call to undefined function home_url() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/headers/header-v3.php on line 34
+[06-Nov-2017 03:40:24 America/Chicago] PHP Fatal error:  Call to undefined function home_url() in /home3/brand7qe/public_html/wp-content/themes/Avada/framework/headers/header-v1.php on line 6
