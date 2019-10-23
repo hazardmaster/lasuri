@@ -11,11 +11,46 @@ $connect = mysqli_connect("localhost:3306", "lasuriin_getQWot", "[W,[wWSZ6j^f", 
 
 
 get_header();
-
+ 
 ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+ 	
+  	<script>
+	 //  	$( document ).ready(function() {
+		//     $('#category').on("change", function(){
+		//     	var category;
+		//     	 category = this.value;
 
+		//     	 $.ajax({
+		// 			  type : "post",
+		// 			  dataType : "json",
+		// 			  url : ajax_object.ajaxurl,
+		// 			  data : 'category='+category,
+		// 			  success: function(response) {
+		// 			    // You can put any code here to run if the response is successful.
+
+		// 			    // This will allow you to see the response
+		// 			    console.log(response);
+		// 			  }
+		// 			});
+
+		//   //   	$.ajax({
+		// 		//  type: 'post',
+		// 		//  url: 'ajaxChange.php',
+		// 		//  data: {
+		// 		//   category:category
+		// 		//  },
+		// 		//  success: function (response) {
+		// 		//  	console.log(response);
+		// 		//  	console.log(url);
+		// 		//   	document.getElementById("new_select").innerHTML=response; 
+		// 		//  }
+
+		// 		// });
+		//     });
+		// });
+ 	</script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  <div class="w3-container w3-card-4"> 
@@ -26,7 +61,7 @@ get_header();
 			  				<!-- Category -->
 			  				<label>Category</label>
 
-			  				<select name="category" id="category" class="w3-select w3-border">
+			  				<select name="category" id="category" class="w3-select w3-border" >
 							   <option value="">Select Category</option>
 								  <?php  
 								  	$sql = "SELECT * FROM category";
@@ -35,7 +70,8 @@ get_header();
 
 								      while($datarows = $stmt->fetch()){    
 								    ?>
-								<option value="<?php echo $datarows["name"]; ?>"><?php echo $datarows["name"]; ?></option>							
+								<option value="<?php echo $datarows["name"]; ?>"><?php echo $datarows["name"]; ?>									
+								</option>							
 								   <?php } ?>
 							</select>
 
@@ -47,16 +83,18 @@ get_header();
 							 <!-- Cover -->
 							<label>Cover</label>
 							<select class="w3-select w3-border" name="insurance-cover" id="insurance-cover">
-								  <option value="" disabled selected>Choose Your Option</option>
-								  <?php  
+								<option value="" disabled selected>Choose Your Option</option>
+								 
+								<?php   
 								  	$sql = "SELECT * FROM subcategory";
 
-								        $stmt = $conn->query($sql);
+								    $stmt = $conn->query($sql);
 
-								      while($datarows = $stmt->fetch()){    
-								    ?>
-								<option><?php echo $datarows["subcat_name"]; ?></option>							
-								   <?php } ?>								   
+								    while($datarows = $stmt->fetch()){ ?>   
+								     <option value="<?php echo $datarows["subcat_name"]; ?>">
+								     	<?php echo $datarows["subcat_name"]; ?>
+								     </option>	
+								  <?php } ?>								  						   
 							 </select><br><br>
 
 							 <!-- Plan -->

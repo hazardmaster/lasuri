@@ -1605,3 +1605,34 @@ function avada_layerslider_ready() {
 	}
 }
 add_action( 'layerslider_ready', 'avada_layerslider_ready' );
+
+
+//Dealing with AJAX
+$params = array(
+  'ajaxurl' => admin_url('admin-ajax.php', $protocol),
+  'ajax_nonce' => wp_create_nonce('any_value_here'),
+);
+wp_localize_script( 'my_blog_script', 'ajax_object', $params );
+
+
+add_action('wp_ajax_get_posts_commented', 'get_posts_commented');
+add_action('wp_ajax_nopriv_get_posts_commented', 'get_posts_commented');
+function get_posts_commented(){
+  check_ajax_referer( 'any_value_here', 'security' );
+
+  $category = urldecode($_POST['category']);
+
+  global $wpdb;
+  $results = $wpdb->get_results($wpdb->prepare("
+    SELECT
+      subcat_name
+    FROM
+      {$wpdb->subcategory}
+    WHERE
+       cat_id = '1'";
+   ), ARRAY_A);
+
+  echo json_encode($results);
+
+  exit;
+}
