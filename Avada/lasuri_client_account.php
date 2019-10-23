@@ -34,7 +34,8 @@ ob_start();
     }
 
     //hash password
-    $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
+    // $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
+    $hashed_password = $password_1;
 
     $stmt = $conn->prepare("INSERT INTO client_member_details (firstName, lastName, phone, email, password) VALUES(:first_name, :last_name, :phone_num, :email_addr, :pass)");
 
@@ -90,7 +91,8 @@ ob_start();
             $email = $row["email"];
             $client_id = $row["ID"];
 
-            if (password_verify($pass, $hashedPassword)) {         
+            // if (password_verify($pass, $hashedPassword)) {         
+            if ($pass == $hashedPassword) {         
               // client_profile()
               $_SESSION["client_id"] = $client_id;
               client_profile($client_id);
@@ -256,19 +258,26 @@ if (isset($_POST["update_profile"])) {
     $phone = $_POST['update_phone'];
     $updatePass_1 = $_POST['password_update_1'];
     $updatePass_2 = $_POST['password_update_2'];
-    $user_id = $_POST['user_id'];   
+    $user_id = $_POST['user_id'];  
+
+    if (!empty($updatePass_1) && !empty($updatePass_2)) {
+
+       if($updatePass_1 !== $updatePass_2){
+          echo "Passwords don't match";
+          exit();
+        }
+      // $password_update = password_hash($updatePass_1, PASSWORD_DEFAULT);
+      $password_update = $updatePass_1;
+     } 
 
     //Sanitize Data
     $email = sanitize_email($rawEmail);
     $firstName = sanitize_user($rawFirstName);
     $lastName = sanitize_user($rawLastName);
 
-    if($updatePass_1 !== $updatePass_2){
-        echo "Passwords don't match";
-        exit();
-    }
+    
     //Hash password
-      $password_update = password_hash($updatePass_1, PASSWORD_DEFAULT);
+      
 
       $data = update($firstName,$lastName,$password_update,$email,$phone,$user_id);
 
@@ -286,22 +295,26 @@ if (isset($_POST["update_profile"])) {
 
          if (!empty($first_name)) {
 
-             $stmt = $conn->prepare(" UPDATE client_member_details SET firstName= 'master' WHERE ID='$user_id' " );
+             $stmt = $conn->prepare(" UPDATE client_member_details SET firstName= '$first_name' WHERE ID='$user_id' " );
+             $result = $stmt->execute();
          }
          if (!empty($last_name)) {
              $stmt = $conn->prepare(" UPDATE client_member_details SET lastName='$last_name' WHERE ID='$user_id' " );
+             $result = $stmt->execute();
          }
          if (!empty($mail)) {
              $stmt = $conn->prepare(" UPDATE client_member_details SET email='$mail' WHERE ID='$user_id' " );
+             $result = $stmt->execute();
          }
          if (!empty($phone)) {
              $stmt = $conn->prepare(" UPDATE client_member_details SET phone='$phone' WHERE ID='$user_id' " );
+             $result = $stmt->execute();
          }  
          if (!empty($updated_password)) {
              $stmt = $conn->prepare(" UPDATE client_member_details SET password='$updated_password' WHERE ID='$user_id' " );
-         }
-                
-         $result = $stmt->execute();
+             $result = $stmt->execute();
+         }              
+         
 
          if (!$result) {
              wp_die('Database update failed');
