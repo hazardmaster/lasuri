@@ -319,11 +319,8 @@ if (isset($_POST["update_profile"])) {
          if (!$result) {
              wp_die('Database update failed');
          }elseif ($result) {
-          echo "Update successful. user ID: ". $user_id."<br> Row Count: ". $stmt->rowCount() ;    
-          exit;
+          echo "<p style='color:green'>Update successful.</p>" ;  
          }
-         echo "I don't know what is going on";
-         exit;
             
     }
 
